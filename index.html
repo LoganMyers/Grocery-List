@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+	<div id="inputs">
+
+		<input type="text" id="txt">
+		<button id="addItem" onclick="addLi()">New Item</button>
+		
+		
+		
+	</div>	
+	
+	<div id="buttons">
+		<h1 id="popup">Hide Me</h1>
+		<button id="close" onclick="closePupUp()">Close</button>
+		<button id="delete" onclick="deleteLi()">Delete</button>
+	</div>
+	
+	<ul id="list">
+		<li>Eggs</li>
+		<li>Milk</li>
+		<li>Butter</li>
+		<li>Flour</li>
+		
+	</ul>
+	
+	
+	
+	<script>
+		
+		var inputText = document.getElementById("txt"),
+			items	=	document.querySelectorAll("#list	li"),
+			tab	=	[],	index,
+			x = document.getElementById("buttons");
+			;
+			
+			// get the selected li index using array
+			// populate array with li value
+			
+			for(var i = 0; i < items.length; i++){
+				tab.push(items[i].innerHTML);
+			}
+			
+			// get li index onclick
+			
+			for(var i = 0; i < items.length; i++){
+			
+				items[i].onclick = function(){
+				
+					
+					
+					index = tab.indexOf(this.innerHTML);
+					console.log(this.innerHTML + " INDEX = " + index)
+					//set the selected li value into input text
+					document.getElementById("popup").innerHTML = this.innerHTML;
+					if (x.style.display === "block"){
+						x.style.display = "none";
+					}	else{
+						x.style.display = "block";
+					}
+					
+					
+				};
+			
+			}
+
+		function refreshArray() {
+			// clear array
+			tab.length = 0;
+			items	=	document.querySelectorAll("#list	li");
+			
+			// fill array
+			for(var i = 0; i < items.length; i++){
+				tab.push(items[i].innerHTML);
+			}
+		
+		}
+		function addLi()	{
+		
+			var listNode	=	document.getElementById("list"),
+				textNode	=	document.createTextNode(inputText.value),
+				liNode		=	document.createElement("LI");
+				
+				liNode.appendChild(textNode);
+				listNode.appendChild(liNode);
+				
+				refreshArray();
+				
+				// add event to the new Li 
+				
+				liNode.onclick = function() {
+					index = tab.indexOf(liNode.innerHTML);
+					console.log(liNode.innerHTML + " INDEX = " + index);
+					inputText.value = liNode.innerHTML;
+					document.getElementById("popup").innerHTML = this.innerHTML;
+					if (x.style.display === "block"){
+						x.style.display = "none";
+					}	else{
+						x.style.display = "block";
+					}
+					
+			};
+		}
+		
+		function closePupUp() {
+			if (x.style.display === "block"){
+						x.style.display = "none";
+					}	else{
+						x.style.display = "block";
+					}
+		}
+		
+		function deleteLi() {
+		
+			refreshArray();
+			if(items.length > 0){
+				items[index].parentNode.removeChild(items[index]);
+				inputText.value = "";
+				if (x.style.display === "block"){
+						x.style.display = "none";
+					}	else{
+						x.style.display = "block";
+					}
+			}
+		}
+		
+		</script>
+	
+</body>
+</html>

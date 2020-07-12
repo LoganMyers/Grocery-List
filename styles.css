@@ -1,0 +1,79 @@
+#buttons			{
+	position: absolute;
+	display: none;
+	background-color: red;
+	border-radius: 25px;
+	width: 90%;
+	margin: 2% 5% 5% 5%;
+	opacity: 80%;
+}
+#addItem			{
+	display: flex;
+	width: 50%;
+	min-width: 25%;
+	margin-top: 2%;
+	padding: 0;
+	justify-content: center;
+	align-items: center;
+	font-size: .8em;
+	font-weight: bold;
+}
+#txt				{
+	display: flex;
+	width: 100%;
+	margin: 0;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+#list				{
+	text-align: center;
+	list-style-type: none;
+	width: 50%;
+	margin: 2% 25% 5% 25%;
+	padding: 0px;
+	z-index: 1;
+}
+#inputs				{
+	position: relative;
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+
+}
+#popup				{
+	width: 100%;
+	text-align: center;
+}
+#close				{
+	width: 20%;
+	float: left;
+	margin: 0 0 5% 5%;
+	font-size: .8em;
+	font-weight: bold;
+}
+#delete				{
+	width: 20%;
+	float: right;
+	margin: 0 5% 5% 0;
+	font-size: .8em;
+	font-weight: bold;
+}
+body				{
+	margin: 0;
+	margin-top: 2%;
+}
+li					{
+	display: flex;
+	width: 50%;
+	margin: 1% 25% 1% 25%;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+input				{
+	margin: auto;
+}
+button				{
+	margin: auto;
+}
